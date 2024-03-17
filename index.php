@@ -11,12 +11,11 @@
 <nav>
 		<ul>
 			<li onclick="changeClass()" id="ind"><a  href="index">Home</a></li>
-			<li onclick="changeClass()" id="ne"><a  href="news.html">News</a></li>
-			<li onclick="changeClass()" style="float:right" id="prop"><a  href="about.asp">About</a></li>
             <li><a href="session.php">session stats</a></li>
             <li style="float:right"><a  href="connexion.php">Connexion</a></li>
             <li><a href="leaderboard.php">leaderboard</a></li>
-            <li><a><?php echo "Bonjour, ".$_SESSION['username']; ?></a></li>
+            <?php if(isset($_SESSION['username'])) echo
+            "<li><a> Bonjour, ".$_SESSION['username']; echo "</a></li>"?>
 		  </ul> 
 </nav>
 
