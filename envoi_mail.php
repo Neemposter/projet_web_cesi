@@ -49,7 +49,7 @@ if ($requete_SELECT->execute()) {
     // Envoyer l'e-mail de réinitialisation
     $sujet = "Réinitialisation du mot de passe";
     $message = "Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant : http://localhost/projet_web_cesi/token_check.php?email=$email&token=$token";
-    $headers = "From: sam.tinga.kelig@gmail.com\r\n";
+    $headers = "From: webmaillara@gmail.com\r\n";
     $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
 
     if (mail($email, $sujet, $message)) {
