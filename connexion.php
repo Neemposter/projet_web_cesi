@@ -38,9 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifier si l'utilisateur existe dans la base de données
     if ($resultat->num_rows == 1) {
         //L'utilisateur existe, connecte-le
-        $_SESSION["username"] = $nom_joueur;
-        $_SESSION["id_joueur"] = $id_joueur;
-        header("Location: user.php");
+        $utilisateur = $resultat->fetch_assoc();
+        $_SESSION["username"] = $utilisateur["nom_joueur"];
+        $_SESSION["id_joueur"] = $utilisateur["id_joueur"];
+        header("Location: index.php");
         exit(); 
     } else {
         // L'utilisateur n'existe pas ou les informations d'identification sont incorrectes
@@ -58,20 +59,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-</head>
+
 <body>
+<a href="index.php">page d'accueil</a>
     <h2>Connexion</h2>
-    <?php if (isset($error_message)) : ?>
-        <p><?php echo $error_message; ?></p>
-    <?php endif; ?>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="login"> Nom d'utilisateur:</label><br>
+    <form action="connexion.php" method="post">
+        <label for="login">login</label><br>
         <input type="text" id="login" name="login" required><br>
         <label for="password">Mot de passe:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="Connexion">
+        <input type="text" id="password" name="password" required><br>
+        <input type="submit" value="Se connecter">
     </form>
+    <a href="page_inscription.php">Vous n'avez pas de compte ?</a>
+    <a href="forgot_password.php">Vous avez oublié votre mot de passe</a>
 </body>
+
 </html>
 

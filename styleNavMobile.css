@@ -1,0 +1,109 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 999;
+  }
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .menu li {
+    margin-bottom: 10px;
+  }
+  .menu a {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+  }
+  .menu a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .menu-toggle span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: transform 0.3s ease-in-out;
+  }
+  .menu-toggle span:nth-child(1) {
+    top: 0;
+  }
+  .menu-toggle span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .menu-toggle span:nth-child(3) {
+    bottom: 0;
+  }
+  .sidebar.open ~ .menu-toggle span:nth-child(1),
+  .sidebar.open ~ .menu-toggle span:nth-child(3) {
+    transform: rotate(45deg);
+    top: 50%;
+  }
+  .sidebar.open ~ .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .sidebar.open ~ .menu-toggle span:nth-child(3) {
+    transform: rotate(-45deg);
+    bottom: 50%;
+  }
+
+
+  .sidebar {
+  display: none; /* Initially hide the menu-toggle */
+}
+
+.sidebar.open {
+    display: block; /* Show the menu-toggle when sidebar has open class */
+  }
+
+.sidebar.open ~ .menu {
+  display: block; /* Show the menu when sidebar has open class */
+}
+
+body {
+    padding-left: 250px; /* Adjust the padding based on the sidebar width */
+  }
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+      width: 200px; /* Reduce the width of the sidebar */
+    }
+  
+    body {
+      padding-left: 200px; /* Adjust the body padding accordingly */
+    }
+  
+    h2 {
+      margin-left: 10px; /* Adjust the margin for the title */
+    }
+  
+    .menu-toggle {
+      top: 10px; /* Adjust the position of the menu toggle */
+      right: 10px;
+    }
+  }
+

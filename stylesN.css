@@ -19,7 +19,6 @@ li {
     float: left;
 }
   a {
-    display: block;
     padding: 8px;
     background-color: #dddddd;
 }
@@ -39,3 +38,57 @@ li a:hover{
 .inactive{
     color: white;
 }
+
+/* Style pour la div "conn" */
+#conn {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Style pour le bouton du menu déroulant */
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style pour le contenu du menu déroulant */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0; /* Aligner le menu déroulant à droite */
+  }
+  
+  /* Style pour les liens du menu déroulant */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Style pour changer la couleur du lien lorsque survolé */
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Affichage du menu déroulant lorsque survolé */
+  #conn:hover .dropbtn {
+    display: block;
+  }
+  
+  /* Media queries pour adapter aux téléphones */
+  @media only screen and (max-width: 600px) {
+    .dropdown-content {
+      right: auto; /* Réinitialiser la position à gauche */
+      left: 0; /* Aligner le menu déroulant à gauche */
+    }
+  }
+  
