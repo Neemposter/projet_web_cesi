@@ -1,0 +1,48 @@
+/* Style pour la table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center; /* Centrer le contenu des cellules */
+}
+
+th, td {
+    padding: 16px; /* Augmenter la taille de la cellule */
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style pour les en-têtes de colonnes */
+th {
+    background-color: #f2f2f2;
+}
+
+/* Style pour les lignes impaires */
+tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Couleur de fond pour les lignes impaires */
+}
+
+/* Media queries pour rendre la table responsive */
+@media only screen and (max-width: 600px) {
+
+    /* Cacher l'en-tête de colonne */
+    th {
+        display: none;
+    }
+
+    /* Afficher les cellules en bloc pour une présentation verticale */
+    td {
+        display: block;
+    }
+
+    /* Ajouter une marge inférieure pour séparer les cellules */
+    td::after {
+        content: '';
+        display: block;
+        height: 8px; /* Augmenter l'espace entre les lignes */
+    }
+
+    /* Afficher le rang avant chaque nom de joueur */
+    td:nth-child(1)::before {
+        content: 'Rang: ';
+        font-weight: bold;
+    }
+}
