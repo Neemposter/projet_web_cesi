@@ -2,11 +2,15 @@
 
 session_start();
 if (isset($_SESSION['username'])) {
-    header("Location: home.php");
-    exit();
+    $connecte = 1;
 }
 // Vérifier si le formulaire a été soumis
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($connecte){
+        header("Location: index.php");
+        exit();
+    }
     // Récupérer les données du formulaire
     $login = $_POST["login"];
     $password = $_POST["password"];
@@ -59,20 +63,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="connexion.css">
 
-<body>
+<body class="light">
 <a href="index.php">page d'accueil</a>
     <h2>Connexion</h2>
     <form action="connexion.php" method="post">
         <label for="login">login</label><br>
         <input type="text" id="login" name="login" required><br>
         <label for="password">Mot de passe:</label><br>
-        <input type="text" id="password" name="password" required><br>
+        <input type="password" id="password" name="password" required><br>
         <input type="submit" value="Se connecter">
     </form>
-    <a href="page_inscription.php">Vous n'avez pas de compte ?</a>
+    <a href="inscription.php">Vous n'avez pas de compte ?</a>
     <a href="forgot_password.php">Vous avez oublié votre mot de passe</a>
 </body>
-
+<script src="theme.js"></script>
 </html>
 

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <link href="./responsive_leaderboard.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Leaderboard</title>
     <nav>
 		<ul>
-			<li onclick="changeClass()" id="ind"><a  href="index.php">Home</a></li>
+			<li id="ind"><a  href="index.php">Home</a></li>
 		  </ul> 
 </nav>
 <?php
@@ -56,8 +56,7 @@ if ($resultat->num_rows > 0) {
 } else {
     echo "Aucun résultat trouvé.";
 }
-
 // Fermer la connexion à la base de données
 $mysqli->close();
 ?>
-
+<script src="theme.js"></script>
