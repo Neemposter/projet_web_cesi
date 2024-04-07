@@ -7,10 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer l'e-mail soumis par l'utilisateur
     $serveur = "localhost"; // adresse du serveur MySQL
     $utilisateur = "root"; // nom d'utilisateur MySQL
-    $motdepasse = ""; // mot de passe MySQL
+    $motdepasse = "Samed2047_"; // mot de passe MySQL
     $base_de_donnees = "cassebrick2"; // nom de la base de données
 
-    $email = $_POST["email"]; //email du compte
+    $email = htmlspecialchars($_POST["email"]); //email du compte
     $token = bin2hex(random_bytes(32)); // Générer un token unique
     $creation_time = time(); // Get the current time
     $expiration_time = strtotime('+1 hour', $creation_time);

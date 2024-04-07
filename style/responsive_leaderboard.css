@@ -1,4 +1,16 @@
 /* Style pour la table */
+a {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+  }
+a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
 table {
     width: 100%;
     border-collapse: collapse;

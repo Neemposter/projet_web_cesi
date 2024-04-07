@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 20%; /* Utilise la largeur totale sur les petits écrans */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+input[type="submit"] {
+    width: 20%; /* Utilise la largeur totale sur les petits écrans */
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Media queries pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 80%; /* Réduit la largeur du conteneur sur les petits écrans */
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="submit"] {
+        width: 80%; /* Réduit la largeur des champs et du bouton sur les petits écrans */
+    }
+}

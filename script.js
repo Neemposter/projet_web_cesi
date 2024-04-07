@@ -13,7 +13,11 @@ window.onload = () => {
             if (getTheme == "dark") {
                 let newHref = href.replace(".css", "_dark.css");
                 cssLink.setAttribute("href", newHref);
+                myButton.textContent = "Light";
 // Coche la case si le thème est sombre
+            }
+            else{
+              myButton.textContent = "Dark";
             }
             console.log(getTheme); // Affiche le thème dans la console
         }
@@ -28,11 +32,10 @@ myButton.addEventListener("click", function () {
     // Si le thème stocké est "clair"
     if (getTheme == "light") {
          // Remplace la classe "light" par "dark"
-        myButton.textContent = "Light";
         localStorage.setItem("theme", "dark"); // Stocke le thème dans le stockage local
         // Stocke l'état de la case à cocher
     } else {
-        myButton.textContent = "Dark";
+        //myButton.textContent = "Dark";
         localStorage.setItem("theme", "light"); // Stocke le thème dans le stockage local
     }
 });
@@ -49,3 +52,5 @@ function confirmLogout() {
     window.location.href = "logout.php";
   }
 }
+
+

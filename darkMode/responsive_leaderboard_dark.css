@@ -1,5 +1,31 @@
 /* Style pour la table */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+li {
+    margin-bottom: 10px;
+  }
+
+ a {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+  }
+ a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+body {
+    background-color: #1a1a1a;
+}
 table {
+    background-color: #1a1a1a;
     width: 100%;
     border-collapse: collapse;
     text-align: center; /* Centrer le contenu des cellules */

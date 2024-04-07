@@ -1,10 +1,12 @@
+
+
 .sidebar {
     position: relative;
     top: 0;
     left: 0;
     bottom: 0;
     width: 250px;
-    background-color: #f2f2f2;
+    background-color: #514747;
     padding: 20px;
     overflow-y: auto;
     z-index: 999;
@@ -24,11 +26,11 @@
     padding: 10px;
     border-radius: 5px;
     text-decoration: none;
-    color: #333;
+    color: #ffffff;
   }
   .menu a:hover {
-    background-color: #333;
-    color: #fff;
+    background-color: #3aaee0;
+    color: #111b2e;
   }
 
   .menu-toggle {
@@ -46,7 +48,7 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #333;
+    background-color: #ffffff;
     transition: transform 0.3s ease-in-out;
   }
   .menu-toggle span:nth-child(1) {
@@ -85,10 +87,6 @@
   display: block; /* Show the menu when sidebar has open class */
 }
 
-body {
-    padding-left: 250px; /* Adjust the padding based on the sidebar width */
-  }
-
 /* Adjustments for smaller screens */
 @media screen and (max-width: 768px) {
     .sidebar {
@@ -109,7 +107,30 @@ body {
     }
   }
 
+  body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
 
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
+        h1 {
+            color: #333;
+        }
 
- 
+        p {
+            color: #666;
+            font-size: 18px;
+        }
+
+       

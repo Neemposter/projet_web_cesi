@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="./responsive_leaderboard.css" rel="stylesheet" />
+    <link href="./style/responsive_leaderboard.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
     <nav>
 		<ul>
-			<li id="ind"><a  href="index.php">Home</a></li>
+			<li><a  href="index.php">Home</a></li>
 		  </ul> 
 </nav>
 <?php
 // Paramètres de connexion à la base de données
 $serveur = "localhost"; // adresse du serveur MySQL
 $utilisateur = "root"; // nom d'utilisateur MySQL
-$motdepasse = ""; // mot de passe MySQL
-$base_de_donnees = "cassebrick2"; // nom de la base de données
+$motdepasse = "Samed2047_"; // mot de passe MySQL
+$base_de_donnees = "cassebrick_V3"; // nom de la base de données
 
 // Connexion à la base de données
 $mysqli = new mysqli($serveur, $utilisateur, $motdepasse, $base_de_donnees);
