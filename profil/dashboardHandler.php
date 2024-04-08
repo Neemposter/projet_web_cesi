@@ -11,6 +11,6 @@ else if($_SESSION['admin']){
     exit();
 }
 else{
-    header("Location: profil\profil.php");
+    header("Location: profil_user.php");
     exit();
 }

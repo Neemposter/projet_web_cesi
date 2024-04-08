@@ -1,4 +1,20 @@
 <div id="Read" class="tabcontent">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profil</title>
+    <link rel="stylesheet" href="../style/profil.css">
+</head>
+<script src = "../script.js"></script>
+<nav>
+            <ul>
+                <li><a href="../index.php">index</a></li>
+                <li><a href="../connexion.php">connexion</a></li>
+                <li><?php if(isset($_SESSION['username'])) echo "<a class=logout onclick=confirmLogout()>Déconnexion</a>"; ?></li>
+            </ul>
+</nav>
 <?php
 session_start();
 if(isset($_SESSION['id_joueur'])){
@@ -27,20 +43,22 @@ $resultat = $requete->get_result();
 if ($resultat->num_rows > 0) {
     // Afficher les informations de chaque utilisateur dans un tableau
     echo "<table border='1'>";
-    if(isset($_SESSION['admin'])){
+    if(isset($_SESSION['admin']) == true){
         echo "<tr><th>ID</th><th>nom</th><th>mail</th><th>Admin</th></tr>";
+    }else if(isset($_SESSION['super_admin']) == true){
+        echo "<tr><th>ID</th><th>nom</th><th>mail</th><th>super Admin</th></tr>";
     }else{
-        echo "<tr><th>ID</th><th>nom</th><th>mail</th></tr>";
+        echo "<tr><th>ID</th><th>nom</th><th>mail</th>";
     }
     while ($row = $resultat->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row["id_joueur"] . "</td>";
         echo "<td>" . $row["nom"] . "</td>";
         echo "<td>" . $row["mail"] . "</td>";
-        if(isset($_SESSION['admin'])){
+        if(isset($_SESSION['admin']) == true){
             echo "<td>" . $row["admin"] . "</td>";
         }
-        if(isset($_SESSION['super_Admin'])){
+        if(isset($_SESSION['super_Admin']) == true){
             echo "<td>" . $row["super_Admin"] . "</td>";
         }
         echo "</tr>";
@@ -60,15 +78,33 @@ $mysqli->close();
     <form action="../profil/update.php" method="post">
         <label for="nom">Nom :</label>
         <input type="text" id="username" name="username" value=<?php echo ($_SESSION['username']); ?>>
+        <label for="nom">mail :</label>
+        <input type="text" id="username" name="mail" value=<?php echo ($_SESSION['mail']); ?>>
         <input type="submit" value="Mettre à jour">
     </form>
 </div>
 
 <div>
-<form action="../profil/delete.php" method="post">
-    <button onclick=confirmDeletion()>destruction de compte</a>
-    <script src="../script.js"></script>
+</head>
+<body>
+    <h1>Création de jeu</h1>
+    <form action="../profil/create_game.php" method="post">
+        <label for="nom">Nom du jeu :</label><br>
+        <input type="text" id="nom" name="nom" required><br>
+        <label for="description">Description (250 caractères max) :</label><br>
+        <textarea id="description" name="description" maxlength="250" required></textarea><br>
+        <input type="submit" value="Créer">
+    </form>
+</body>
 </div>
+
+<div>
+<form action="../profil/delete.php" method="post">
+    <button onclick=confirmDeletion()>suppression de compte</a>
+</div>
+
+
+
 <?php
 } else{?>
     <a href="../index.php">bien essayé</a><?php

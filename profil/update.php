@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Récupère les données du formulaire
         $id_joueur = $_SESSION['id_joueur'];
         $nom = $_POST['username'];
-
+        $mail = $_POST['mail'];
         // Connexion à la base de données
         $serveur = "localhost";
         $utilisateur = "root";
@@ -23,10 +23,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Prépare la requête SQL pour mettre à jour le nom_joueur et l'email
-        
-            $requete = $mysqli->prepare("UPDATE joueur SET nom = ? WHERE id_joueur = ?");
-            $requete->bind_param("si", $nom, $id_joueur);
-        
+            if($nom && $mail){
+            $requete = $mysqli->prepare("UPDATE joueur SET nom = ? AND mail = ? WHERE id_joueur = ?");
+            $requete->bind_param("ssi", $nom, $mail, $id_joueur);
+            }else if($nom){
+                $requete = $mysqli->prepare("UPDATE joueur SET nom = ? WHERE id_joueur = ?");
+                $requete->bind_param("si", $nom, $id_joueur);
+            }else if($mail){
+                $requete = $mysqli->prepare("UPDATE joueur SET mail = ? WHERE id_joueur = ?");
+                $requete->bind_param("si", $mail, $id_joueur);
+            }
         // Exécute la requête SQL
         if ($requete->execute()) {
             echo "Mise à jour effectuée avec succès.";

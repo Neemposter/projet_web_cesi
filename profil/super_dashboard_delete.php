@@ -6,6 +6,7 @@ $serveur = "localhost"; // adresse du serveur MySQL
 $utilisateur = "root"; // nom d'utilisateur MySQL
 $motdepasse = "Samed2047_"; // mot de passe MySQL
 $base_de_donnees = "cassebrick_V3"; // nom de la base de données
+
 // Connexion à la base de données
 $mysqli = new mysqli($serveur, $utilisateur, $motdepasse, $base_de_donnees);
 

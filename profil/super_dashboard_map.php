@@ -13,7 +13,7 @@ if (isset($_SESSION['super_Admin'])) { // Assurez-vous que la session a été d�
 <body>
     <h1>Choisissez où aller :</h1>
     <ul>
-        <li><a href="super_dashboard.php">Dashboard Super Admin</a></li>
+        <li><a href="super_dashboard_delete.php">Dashboard Super Admin</a></li>
         <li><a href="profil_user.php">Profil</a></li>
         <li><a href="../index.php">home</a></li>
     </ul>

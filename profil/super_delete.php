@@ -27,7 +27,16 @@
         // Fermer la requête et la connexion à la base de données
         $requete->close();
         $mysqli->close();
+        
+        $requete = $mysqli->prepare("INSERT INTO joueur WHERE id_joueur = ?");
+        foreach ($selected_ids as $id) {
+            $requete->bind_param("i", $id);
+            $requete->execute();
+        }
     
+        // Fermer la requête et la connexion à la base de données
+        $requete->close();
+        $mysqli->close();
         // Rediriger vers une autre page ou afficher un message de confirmation
     
 ?>
