@@ -1,16 +1,10 @@
 <?php
 
 session_start();
-if (isset($_SESSION['username'])) {
-    $connecte = 1;
-}
+$connecte = 0;
 // Vérifier si le formulaire a été soumis
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if ($connecte){
-        header("Location: index.php");
-        exit();
-    }
     // Récupérer les données du formulaire
     $login = htmlspecialchars($_POST["login"]);
     $password = htmlspecialchars($_POST["password"]);
@@ -44,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //L'utilisateur existe, connecte-le
         $utilisateur = $resultat->fetch_assoc();
         if($utilisateur["admin"] == 1 && $utilisateur["super_Admin"] == 1){
-            $_SESSION["admin"] = $utilisateur["admin"];
             $_SESSION["super_Admin"] = $utilisateur["super_Admin"];
         }
         else if($utilisateur["super_Admin"] == 1){
@@ -53,11 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else if($utilisateur["admin"] == 1){
             $_SESSION["admin"] = $utilisateur["admin"];
         }
+
+        $_SESSION["id_joueur"] = $utilisateur["id_joueur"];
         $_SESSION["mail"] = $utilisateur["mail"];
         $_SESSION["username"] = $utilisateur["nom"];
-        $_SESSION["password"] = $utilisateur["motdepasse"];
+
         
-        header("Location: ../index.php");
+        header("Location: index.php");
         exit(); 
     } else {
         // L'utilisateur n'existe pas ou les informations d'identification sont incorrectes
@@ -78,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="style/connexion.css">
 
 <body class="light">
-<a href="../index.php">page d'accueil</a>
+<a href="index.php">page d'accueil</a>
     <h2>Connexion</h2>
     <form action="connexion.php" method="post">
         <label for="login">login</label><br>

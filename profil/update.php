@@ -4,11 +4,10 @@ session_start();
 // Vérifie si les données du formulaire ont été soumises
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifie si les champs obligatoires sont renseignés
-    if (isset($_SESSION['nom']) || isset($_POST['username']) || isset($_POST['mail'])) {
+   
         // Récupère les données du formulaire
-        $id_joueur = $_SESSION['username'];
+        $id_joueur = $_SESSION['id_joueur'];
         $nom = $_POST['username'];
-        $email = $_POST['mail'];
 
         // Connexion à la base de données
         $serveur = "localhost";
@@ -24,16 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Prépare la requête SQL pour mettre à jour le nom_joueur et l'email
-        if(isset($_POST['username']) && isset($_POST['mail'])){
-            $requete = $mysqli->prepare("UPDATE joueur SET nom = ?, email = ? WHERE id_joueur = ?");
-            $requete->bind_param("ssi", $nom_joueur, $email, $id_joueur);
-        }else if(isset($_POST['username'])){
-            $requete = $mysqli->prepare("UPDATE joueurs SET nom = ? WHERE id_joueur = ?");
+        
+            $requete = $mysqli->prepare("UPDATE joueur SET nom = ? WHERE id_joueur = ?");
             $requete->bind_param("si", $nom, $id_joueur);
-        }else if(isset($_POST['mail'])){
-            $requete = $mysqli->prepare("UPDATE joueurs SET mail = ? WHERE id_joueur = ?");
-            $requete->bind_param("si", $email, $id_joueur);
-        }
+        
         // Exécute la requête SQL
         if ($requete->execute()) {
             echo "Mise à jour effectuée avec succès.";
@@ -44,8 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Ferme la connexion à la base de données
         $requete->close();
         $mysqli->close();
-    } else {
-        echo "Tous les champs sont obligatoires.";
-    }
+     
 }
 ?>

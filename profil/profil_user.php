@@ -1,6 +1,7 @@
 <div id="Read" class="tabcontent">
 <?php
 session_start();
+if(isset($_SESSION['id_joueur'])){
 $serveur = "localhost"; // adresse du serveur MySQL
 $utilisateur = "root"; // nom d'utilisateur MySQL
 $motdepasse = "Samed2047_"; // mot de passe MySQL
@@ -26,14 +27,21 @@ $resultat = $requete->get_result();
 if ($resultat->num_rows > 0) {
     // Afficher les informations de chaque utilisateur dans un tableau
     echo "<table border='1'>";
-    echo "<tr><th>ID</th><th>nom</th><th>mail</th><th>Admin</th></tr>";
+    if(isset($_SESSION['admin'])){
+        echo "<tr><th>ID</th><th>nom</th><th>mail</th><th>Admin</th></tr>";
+    }else{
+        echo "<tr><th>ID</th><th>nom</th><th>mail</th></tr>";
+    }
     while ($row = $resultat->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row["id_joueur"] . "</td>";
         echo "<td>" . $row["nom"] . "</td>";
         echo "<td>" . $row["mail"] . "</td>";
-        echo "<td>" . $row["admin"] . "</td>";
+        if(isset($_SESSION['admin'])){
+            echo "<td>" . $row["admin"] . "</td>";
+        }
         echo "</tr>";
+        $mailSave = 
     }
     echo "</table>";
 } else {
@@ -49,9 +57,17 @@ $mysqli->close();
     <!-- Contenu de l'onglet de mise à jour -->
     <form action="../profil/update.php" method="post">
         <label for="nom">Nom :</label>
-        <input type="text" id="username" name="nom" value=<?php echo ($_SESSION['username']); ?>>
-        <label for="mail">Email :</label>
-        <input type="email" id="mail" name="mail" value=<?php echo ($_SESSION['mail']); ?>>
+        <input type="text" id="username" name="username" value=<?php echo ($_SESSION['username']); ?>>
         <input type="submit" value="Mettre à jour">
     </form>
 </div>
+
+<div>
+<form action="../profil/delete.php" method="post">
+    <button onclick=confirmDeletion()>destruction de compte</a>
+    <script src="../script.js"></script>
+</div>
+<?php
+} else{?>
+    <a href="../index.php">bien essayé</a><?php
+}

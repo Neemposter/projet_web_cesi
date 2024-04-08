@@ -2,7 +2,7 @@
 session_start();
 
 if($_SESSION['super_Admin']){
-    header("Location: profil\super_dashboard.php");
+    header("Location: super_dashboard_map.php");
     exit();
 }
 

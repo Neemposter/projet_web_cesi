@@ -1,5 +1,5 @@
  <?php session_start();
-$url = "profil\profil_user.php" ?>
+$url = "profil\dashboardHandler.php" ?>
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,7 @@ $url = "profil\profil_user.php" ?>
         <nav>
             <ul>
                 <li><?php if(isset($_SESSION['username'])) echo "<a>Bonjour, ".$_SESSION['username'];echo "</a>"; ?></li>
-                <li><a href="login/connexion.php">connexion</a></li>
+                <li><a href="connexion.php">connexion</a></li>
                 <li><?php if(isset($_SESSION['username'])) echo "<a href=$url>profil</a>"; ?></li>
                 <li><?php if(isset($_SESSION['username'])) echo "<a class=logout onclick=confirmLogout()>Déconnexion</a>"; ?></li>
             </ul>
