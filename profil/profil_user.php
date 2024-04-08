@@ -40,8 +40,10 @@ if ($resultat->num_rows > 0) {
         if(isset($_SESSION['admin'])){
             echo "<td>" . $row["admin"] . "</td>";
         }
+        if(isset($_SESSION['super_Admin'])){
+            echo "<td>" . $row["super_Admin"] . "</td>";
+        }
         echo "</tr>";
-        $mailSave = 
     }
     echo "</table>";
 } else {

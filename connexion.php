@@ -37,20 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultat->num_rows == 1) {
         //L'utilisateur existe, connecte-le
         $utilisateur = $resultat->fetch_assoc();
-        if($utilisateur["admin"] == 1 && $utilisateur["super_Admin"] == 1){
-            $_SESSION["super_Admin"] = $utilisateur["super_Admin"];
-        }
-        else if($utilisateur["super_Admin"] == 1){
-            $_SESSION["super_Admin"] = $utilisateur["super_Admin"];
-        }
-        else if($utilisateur["admin"] == 1){
-            $_SESSION["admin"] = $utilisateur["admin"];
-        }
-
+        $_SESSION["super_Admin"] = ($utilisateur["super_Admin"] == 1);
+        $_SESSION["admin"] = ($utilisateur["admin"] == 1);
         $_SESSION["id_joueur"] = $utilisateur["id_joueur"];
         $_SESSION["mail"] = $utilisateur["mail"];
         $_SESSION["username"] = $utilisateur["nom"];
-
         
         header("Location: index.php");
         exit(); 
