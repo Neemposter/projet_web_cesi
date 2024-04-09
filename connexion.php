@@ -37,8 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultat->num_rows == 1) {
         //L'utilisateur existe, connecte-le
         $utilisateur = $resultat->fetch_assoc();
-        $_SESSION["super_Admin"] = ($utilisateur["super_Admin"] == 1);
-        $_SESSION["admin"] = ($utilisateur["admin"] == 1);
+        if ($utilisateur["super_Admin"] == 1){
+            $_SESSION["super_Admin"] = true;
+            $_SESSION["admin"] = true;
+        }
+        else if ($utilisateur["admin"] == 1){
+            $_SESSION["admin"] = true;
+        }
         $_SESSION["id_joueur"] = $utilisateur["id_joueur"];
         $_SESSION["mail"] = $utilisateur["mail"];
         $_SESSION["username"] = $utilisateur["nom"];
@@ -74,7 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Se connecter">
     </form>
     <a href="inscription.php">Vous n'avez pas de compte ?</a>
-    <a href="forgot_password.php">Vous avez oublié votre mot de passe</a>
 </body>
 <script src="script.js"></script>
 

@@ -57,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/connexion.css">
+    <link rel="stylesheet" href="style/connexion.css">
     <title>Inscription</title>
 </head>
 <body class="light">
-<a href="../index.php">page d'accueil</a>
+<a href="index.php">page d'accueil</a>
     <h2>Inscription</h2>
     <form action="inscription.php" method="post">
         <label for="username">Nom d'utilisateur:</label><br>

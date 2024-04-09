@@ -1,4 +1,18 @@
 <div id="Read" class="tabcontent">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard super admin</title>
+    <link rel="stylesheet" href="../style/profil.css">
+</head>
+<nav>
+            <ul>
+                <li><a href="../index.php">index</a></li>
+            </ul>
+        </nav>
+<div id="Read" class="tabcontent">
 <?php
 session_start();
 if(isset($_SESSION['super_Admin'])){

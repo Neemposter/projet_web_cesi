@@ -27,7 +27,25 @@
     
             // Check if the deletion was successful
             if ($requete->affected_rows > 0) {
-                echo "User account deleted successfully.";
+                
+                ?>
+                <!DOCTYPE html>
+                <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profil</title>
+    <link rel="stylesheet" href="../style/profil.css">
+</head>
+                <nav>
+            <ul>
+                <li><a href="../index.php">index</a></li>
+            </ul>
+                </nav>
+                <h1>User account deleted successfully.<h1>
+
+
+<?php
             } else {
                 echo "Failed to delete user account.";
             }

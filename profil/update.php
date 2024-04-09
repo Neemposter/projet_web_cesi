@@ -7,8 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
         // Récupère les données du formulaire
         $id_joueur = $_SESSION['id_joueur'];
-        $nom = $_POST['username'];
-        $mail = $_POST['mail'];
+        $nom = htmlspecialchars($_POST['username']);
+        $mail = htmlspecialchars($_POST['mail']);
         // Connexion à la base de données
         $serveur = "localhost";
         $utilisateur = "root";

@@ -11,8 +11,7 @@
 <nav>
             <ul>
                 <li><a href="../index.php">index</a></li>
-                <li><a href="../connexion.php">connexion</a></li>
-                <li><?php if(isset($_SESSION['username'])) echo "<a class=logout onclick=confirmLogout()>Déconnexion</a>"; ?></li>
+                <li><a class=logout onclick=confirmLogout()>Déconnexion</a></li>
             </ul>
 </nav>
 <?php
