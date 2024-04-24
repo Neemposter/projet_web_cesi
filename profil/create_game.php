@@ -15,7 +15,7 @@ if (empty($nom) || empty($description)) {
 // Informations de connexion à la base de données
 $serveur = "localhost";
 $utilisateur = "root";
-$motdepasse = "Samed2047_";
+$motdepasse = "";
 $base_de_donnees = "cassebrick_V3";
 
 // Connexion à la base de données

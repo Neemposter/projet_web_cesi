@@ -7,7 +7,7 @@
         $selected_ids = $_POST['selected_ids'];
         $serveur = "localhost"; 
         $utilisateur = "root"; // nom d'utilisateur MySQL
-        $motdepasse = "Samed2047_"; // mot de passe MySQL
+        $motdepasse = ""; // mot de passe MySQL
         $base_de_donnees = "cassebrick_V3"; 
         // Connexion à la base de données
         $mysqli = new mysqli($serveur, $utilisateur, $motdepasse, $base_de_donnees);
@@ -28,15 +28,7 @@
         $requete->close();
         $mysqli->close();
         
-        $requete = $mysqli->prepare("INSERT INTO joueur WHERE id_joueur = ?");
-        foreach ($selected_ids as $id) {
-            $requete->bind_param("i", $id);
-            $requete->execute();
-        }
-    
-        // Fermer la requête et la connexion à la base de données
-        $requete->close();
-        $mysqli->close();
+        
         // Rediriger vers une autre page ou afficher un message de confirmation
     
 ?>

@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Informations de connexion à la base de données
     $serveur = "localhost"; // adresse du serveur MySQL
     $utilisateur = "root"; // nom d'utilisateur MySQL
-    $motdepasse = "Samed2047_"; // mot de passe MySQL
+    $motdepasse = ""; // mot de passe MySQL
     $base_de_donnees = "cassebrick_V3"; // nom de la base de données
 
     // Connexion à la base de données

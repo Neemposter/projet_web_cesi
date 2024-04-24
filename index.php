@@ -25,7 +25,7 @@ $url = "profil/dashboardHandler.php" ?>
 // Connexion à la base de données
 $serveur = "localhost"; // Adresse du serveur MySQL
 $utilisateur = "root"; // Nom d'utilisateur MySQL
-$motdepasse = "Samed2047_"; // Mot de passe MySQL
+$motdepasse = ""; // Mot de passe MySQL
 $base_de_donnees = "cassebrick_V3"; // Nom de la base de données
 
 $mysqli = new mysqli($serveur, $utilisateur, $motdepasse, $base_de_donnees);

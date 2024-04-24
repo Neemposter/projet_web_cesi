@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Connexion à la base de données
         $serveur = "localhost";
         $utilisateur = "root";
-        $mot_de_passe = "Samed2047_";
+        $mot_de_passe = "";
         $base_de_donnees = "cassebrick_V3";
 
         $mysqli = new mysqli($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);

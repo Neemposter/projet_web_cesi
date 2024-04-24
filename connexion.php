@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Informations de connexion à la base de données
     $serveur = "localhost"; 
     $utilisateur = "root"; // nom d'utilisateur MySQL
-    $motdepasse = "Samed2047_"; // mot de passe MySQL
+    $motdepasse = ""; // mot de passe MySQL
     $base_de_donnees = "cassebrick_V3"; 
 
     // Connexion à la base de données
@@ -84,9 +84,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 // Générer du code JavaScript pour afficher les données de session
-echo "<script>";
-echo "console.log('Données de session PHP : " . json_encode($_SESSION) . "');";
-echo "</script>";
+// echo "<script>";
+// echo "console.log('Données de session PHP : " . json_encode($_SESSION) . "');";
+// echo "</script>";
 ?>
 
 <style>

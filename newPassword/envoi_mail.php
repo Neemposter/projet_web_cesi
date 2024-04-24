@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer l'e-mail soumis par l'utilisateur
     $serveur = "localhost"; // adresse du serveur MySQL
     $utilisateur = "root"; // nom d'utilisateur MySQL
-    $motdepasse = "Samed2047_"; // mot de passe MySQL
+    $motdepasse = ""; // mot de passe MySQL
     $base_de_donnees = "cassebrick2"; // nom de la base de données
 
     $email = htmlspecialchars($_POST["email"]); //email du compte
